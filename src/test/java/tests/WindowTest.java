@@ -1,8 +1,8 @@
 package tests;
 
+import helperMethods.ElementHelper;
+import helperMethods.TabHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import sharedData.SharedData;
 import java.util.ArrayList;
@@ -13,44 +13,32 @@ public class WindowTest extends SharedData {
     @Test
     public void metodaTest() {
 
-        JavascriptExecutor js = (JavascriptExecutor) getDriver(); // obiect pt a apleta funtii cum ar fii CLick fortat
+        ElementHelper elementHelper = new ElementHelper(getDriver());
+        TabHelper tabHelper = new TabHelper(getDriver());
 
-        WebElement windowsMenuElement = getDriver().findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        js.executeScript("arguments[0].click();", windowsMenuElement); // face un click fortat
+        //JavascriptExecutor js = (JavascriptExecutor) getDriver(); // obiect pt a apleta funtii cum ar fii CLick fortat
 
-        WebElement windowsElement = getDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
-        js.executeScript("arguments[0].click();", windowsElement);
+        By windowsMenuElement = By.xpath("//h5[text()='Alerts, Frame & Windows']");
+        elementHelper.clickJsLocator(windowsMenuElement);
+
+        By windowsElement = By.xpath("//span[text()='Browser Windows']");
+       elementHelper.clickJsLocator(windowsElement);
 
 
         //click new tab
-        WebElement newTabButton = getDriver().findElement(By.id("tabButton"));
-        newTabButton.click();
-
+        By newTabButton = By.id("tabButton");
+        elementHelper.clickLocator(newTabButton);
         System.out.println("Url curent este: " + getDriver().getCurrentUrl());
 
-        List<String> tabs = new ArrayList<>(getDriver().getWindowHandles()); //aflat cate taburi sunt deschise
-        getDriver().switchTo().window(tabs.get(1)); // se afce switch pe tabul nr 2 deschs de noi
-        System.out.println("Url al 2-lea este: " + getDriver().getCurrentUrl());
-
-        getDriver().close(); // inchide tabul curent
-        getDriver().switchTo().window(tabs.get(0));
-        System.out.println("Url curent este: " + getDriver().getCurrentUrl());
+        tabHelper.switchToSpecificTab(1);
+        tabHelper.closeCurrentTab();
+        tabHelper.switchToSpecificTab(0);
 
         //click new window
-        WebElement newWindowElement = getDriver().findElement(By.xpath("//button[@id='windowButton']"));
-        newWindowElement.click();
+        By newWindowElement = By.xpath("//button[@id='windowButton']");
+        elementHelper.clickLocator(newWindowElement);
 
         System.out.println("Url curent este: " + getDriver().getCurrentUrl());
-
-        List<String> windows = new ArrayList<>(getDriver().getWindowHandles()); //aflat cate windows sunt deschise
-        getDriver().switchTo().window(windows.get(1)); // se afce switch pe windows nr 2 deschs de noi
-        System.out.println("Url al 2-lea este: " + getDriver().getCurrentUrl());
-        getDriver().close(); // inchide tabul curent
-        getDriver().switchTo().window(windows.get(0));
-        System.out.println("Url curent este: " + getDriver().getCurrentUrl());
-
-
-
     }
 }
 
