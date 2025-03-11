@@ -99,6 +99,12 @@ public class ElementHelper {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(value);
     }
+
+    public void clearAndFillLocator(By locator, String value) {
+        waitForVisible(locator);
+        driver.findElements(locator).clear();
+        driver.findElement(locator).sendKeys(value);
+    }
 }
 
 
