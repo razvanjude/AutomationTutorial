@@ -14,8 +14,8 @@ public class WebTablesTest extends SharedData {
         indexPage.clickOnWebTableSubMenu();
 
         // add
-        String firstnameValue = "Gabriel";
-        String lastNameValue = "Turcu";
+        String firstnameValue = "Razvan";
+        String lastNameValue = "Jude";
         String userEmailValue = "g.t@test123.com";
         String ageValue = "20";
         String salaryValue = "20000";
