@@ -8,6 +8,7 @@ import java.util.List;
 public class TabHelper {
 
     private WebDriver driver;
+
     public TabHelper(WebDriver driver) {
         this.driver = driver;
     }
