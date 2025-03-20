@@ -11,7 +11,7 @@ public class AlertPage extends BasePage {
         super(driver);
         }
 
-    public void interaptWithAcceptAlert() {
+    public void interactWithAcceptAlert() {
         elementHelper.clickLocator(AlertLocators.alertOkElement);
         alertHelper.acceptAlert();
     }

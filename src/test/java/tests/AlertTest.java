@@ -17,7 +17,7 @@ public class AlertTest extends SharedData {
         indexPage.clickOnAlertSubMenu();
 
         AlertPage alertPage = new AlertPage(getDriver());
-        alertPage.interaptWithAcceptAlert();
+        alertPage.interactWithAcceptAlert();
         alertPage.interactWithTimerAlert();
         alertPage.interactWithCancelAlert();
         alertPage.interactWithValueAlert("Gabriel");
