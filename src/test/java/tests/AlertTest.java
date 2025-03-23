@@ -1,8 +1,6 @@
 package tests;
 
-import helperMethods.AlertHelper;
-import helperMethods.ElementHelper;
-import org.openqa.selenium.*;
+import modelObject.AlertModel;
 import org.testng.annotations.Test;
 import pages.AlertPage;
 import pages.IndexPage;
@@ -10,9 +8,12 @@ import sharedData.SharedData;
 
 public class AlertTest extends SharedData {
 
-
     @Test
-    public void metodaTest() {IndexPage indexPage = new IndexPage(getDriver());
+    public void metodaTest() {
+
+        AlertModel testData = new AlertModel("src/test/resources/testData/AlertData.json");
+
+        IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickOnAlertWindowMenu();
         indexPage.clickOnAlertSubMenu();
 
@@ -20,40 +21,6 @@ public class AlertTest extends SharedData {
         alertPage.interaptWithAcceptAlert();
         alertPage.interactWithTimerAlert();
         alertPage.interactWithCancelAlert();
-        alertPage.interactWithValueAlert("Gabriel");
-
+        alertPage.interactWithValueAlert(testData);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

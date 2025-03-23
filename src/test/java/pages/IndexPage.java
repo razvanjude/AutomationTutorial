@@ -12,15 +12,15 @@ public class IndexPage extends BasePage { public IndexPage(WebDriver driver) {
     }
 
     public void clickOnAlertSubMenu() {
-        elementHelper.clickLocator(IndexLocators.alertsElement);
+        elementHelper.clickJsLocator(IndexLocators.alertsElement);
     }
 
     public void clickOnFrameSubMenu() {
-        elementHelper.clickLocator(IndexLocators.frameElement);
+        elementHelper.clickJsLocator(IndexLocators.frameElement);
     }
 
     public void clickOnWindowSubMenu() {
-        elementHelper.clickLocator(IndexLocators.browserWindowElement);
+        elementHelper.clickJsLocator(IndexLocators.browserWindowElement);
     }
 
     public void clickOnFormsMenu() {

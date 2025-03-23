@@ -9,30 +9,21 @@ import sharedData.SharedData;
 public class WebTablesTest extends SharedData {
     @Test
     public void metodaTest () {
+        modelObject.WebTableModel testData = new modelObject.WebTableModel("src/test/resources/testData/WebTablesData.json");
+
         IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickOnElementsMenu();
         indexPage.clickOnWebTableSubMenu();
 
         // add
-        String firstnameValue = "Razvan";
-        String lastNameValue = "Jude";
-        String userEmailValue = "g.t@test123.com";
-        String ageValue = "20";
-        String salaryValue = "20000";
-        String departmentValue = "QA";
-
         WebTablePage webTablePage = new WebTablePage(getDriver());
-        webTablePage.addNewEntry(firstnameValue, lastNameValue,userEmailValue,ageValue,salaryValue,departmentValue,4);
-
+        webTablePage.addNewEntry(testData);
 
         //edit
-        String editSalaryValue = "30000";
-        String editDepartmentValue = "Team lead QA";
-        String editAgeValue = "23";
-        webTablePage.editNewEntry(editSalaryValue,editDepartmentValue,editAgeValue,4);
+        webTablePage.editNewEntry(testData);
 
         //delete
-        webTablePage.deleteNewEntry(3);
+        webTablePage.deleteNewEntry(testData);
 
     }
 

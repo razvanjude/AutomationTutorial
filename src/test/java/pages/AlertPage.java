@@ -1,14 +1,14 @@
 package pages;
 
-import helperMethods.AlertHelper;
-import helperMethods.ElementHelper;
 import org.openqa.selenium.WebDriver;
 import pagelocators.AlertLocators;
+import modelObject.AlertModel;
 
 public class AlertPage extends BasePage {
 
         public AlertPage(WebDriver driver) {
-        super(driver);
+
+            super(driver);
         }
 
     public void interaptWithAcceptAlert() {
@@ -26,8 +26,8 @@ public class AlertPage extends BasePage {
         alertHelper.cancelAlert();
     }
 
-    public void interactWithValueAlert(String value) {
-        elementHelper.clickLocator(AlertLocators.alertTextElement);
-        alertHelper.fillTextAlert(value);
+    public void interactWithValueAlert(AlertModel testData) {
+        elementHelper.clickJsLocator(AlertLocators.alertTextElement);
+        alertHelper.fillTextAlert(testData.getPromptData());
     }
 }
