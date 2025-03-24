@@ -79,7 +79,7 @@ public class PracticeFormPage extends BasePage {
         elementHelper.clickJsLocator(PracticeFormLocators.submitElement);
     }
 
-    public void validateEntireContent(modelObject.PracticeFormModel testData) {
+    public void validateEntireContent(PracticeFormModel testData) {
         elementHelper.validateElementText(PracticeFormLocators.thankYouElement, testData.getExpectedMessage());
         LoggerUtility.infoLog("The user validate the presence of the Thank you message");
 

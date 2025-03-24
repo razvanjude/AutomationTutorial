@@ -1,9 +1,8 @@
 package pages;
 
-import helperMethods.ElementHelper;
-import helperMethods.TabHelper;
 import org.openqa.selenium.WebDriver;
 import pagelocators.TabWindowLocators;
+import modelObject.PracticeFormModel;
 
 public class TabWindowPage extends BasePage{
 
