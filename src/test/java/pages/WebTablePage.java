@@ -43,7 +43,7 @@ public class WebTablePage extends BasePage{
         elementHelper.clearAndFillLocator(WebTableLocators.editSalaryElement,testData.getEditSalaryValue());
         elementHelper.clearAndFillLocator(WebTableLocators.editDepartmentElement,testData.getEditDepartmentValue());
         elementHelper.clearAndFillLocator(WebTableLocators.editAgeElement,testData.getEditAgeValue());
-        elementHelper.clickLocator(WebTableLocators.editSubmitElement);
+        elementHelper.clickJsLocator(WebTableLocators.editSubmitElement);
         //validăm valorile modificate
         elementHelper.validateSizeList(WebTableLocators.editTableElementLocator, testData.getNewTableSize());
         //validăm conținutul tabelului
