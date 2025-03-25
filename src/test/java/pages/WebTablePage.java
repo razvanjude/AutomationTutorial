@@ -46,11 +46,22 @@ public class WebTablePage extends BasePage{
         List<WebElement> addTableElementList = driver.findElements(WebTableLocators.addTableElementLocator);
         String rowText = addTableElementList.get(testData.getNewTableSize()-1).getText();
         Assert.assertTrue(rowText.contains(testData.getFirstnameValue()));
+        LoggerUtility.infoLog("The user validates the presence of FirstName in table: " + testData.getFirstnameValue());
+
         Assert.assertTrue(rowText.contains(testData.getLastNameValue()));
+        LoggerUtility.infoLog("The user validates the presence of FirstName in table: " + testData.getLastNameValue());
+
         Assert.assertTrue(rowText.contains(testData.getUserEmailValue()));
+        LoggerUtility.infoLog("The user validates the presence of email in table: " + testData.getUserEmailValue());
+
         Assert.assertTrue(rowText.contains(testData.getDepartmentValue()));
+        LoggerUtility.infoLog("The user validates the presence of depatment in table: " + testData.getDepartmentValue());
+
         Assert.assertTrue(rowText.contains(testData.getSalaryValue()));
+        LoggerUtility.infoLog("The user validates the presence of salary in table: " + testData.getSalaryValue());
+
         Assert.assertTrue(rowText.contains(testData.getAgeValue()));
+        LoggerUtility.infoLog("User validates the presence of age in table: " + testData.getAgeValue());
     }
 
     public void editNewEntry(modelObject.WebTableModel testData) {
