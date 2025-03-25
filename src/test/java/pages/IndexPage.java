@@ -28,7 +28,7 @@ public class IndexPage extends BasePage {
     }
 
     public void clickOnWindowSubMenu() {
-        elementHelper.clickLocator(IndexLocators.browserWindowElement);
+        elementHelper.clickJsLocator(IndexLocators.browserWindowElement);
         LoggerUtility.infoLog("The user clicks on Window Sub Menu");
     }
 

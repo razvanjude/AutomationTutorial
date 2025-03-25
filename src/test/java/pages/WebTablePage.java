@@ -1,5 +1,6 @@
 package pages;
 
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -19,12 +20,26 @@ public class WebTablePage extends BasePage{
         elementHelper.validateSizeList(WebTableLocators.initialTableElementLocator, testData.getNewTableSize()-1);
         elementHelper.clickJsLocator(WebTableLocators.addElement);
         elementHelper.fillLocator(WebTableLocators.firstNameElement, testData.getFirstnameValue());
+        LoggerUtility.infoLog("The user fills First Name with value: " + testData.getFirstnameValue());
+
         elementHelper.fillLocator(WebTableLocators.lastNameElement, testData.getLastNameValue());
+        LoggerUtility.infoLog("The user fills Last Name with value: " + testData.getLastNameValue());
+
         elementHelper.fillLocator(WebTableLocators.userEmailElement, testData.getUserEmailValue());
+        LoggerUtility.infoLog("The user fills Email with value: " + testData.getUserEmailValue());
+
         elementHelper.fillLocator(WebTableLocators.ageElement, testData.getAgeValue());
+        LoggerUtility.infoLog("The user fills Age with value: " + testData.getAgeValue());
+
         elementHelper.fillLocator(WebTableLocators.salaryElement, testData.getSalaryValue());
+        LoggerUtility.infoLog("The user fills Salary with value: " + testData.getSalaryValue());
+
         elementHelper.fillLocator(WebTableLocators.departmentElement, testData.getDepartmentValue());
+        LoggerUtility.infoLog("The user fills Department with value: " + testData.getDepartmentValue());
+
         elementHelper.clickJsLocator(WebTableLocators.submitElement);
+        LoggerUtility.infoLog("The user clicks Submit button ");
+
         //validăm că avem 4 rânduri în tabel
         elementHelper.validateSizeList(WebTableLocators.addTableElementLocator, testData.getNewTableSize());
         //validăm conținutul tabelului

@@ -13,12 +13,12 @@ public class FramePage extends BasePage{
         frameHelper.switchToIFrame("frame1");
         elementHelper.printLocatorText(FrameLocators.textElement);
         frameHelper.switchToParentFrame();
-        LoggerUtility.infoLog("The user opened first frame ");
+        LoggerUtility.infoLog("The focus is changed to parent frame ");
     }
 
     public void interactSecondIFrame(){
         frameHelper.switchToIFrame("frame2");
         elementHelper.printLocatorText(FrameLocators.text2Element);
-        LoggerUtility.infoLog("The user opened second frame ");
+        LoggerUtility.infoLog("The frame message is seen  ");
     }
 }
