@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name = "Regression Testing Suite" thread-count="3" parallel="classes" >
+<suite name = "Regression Testing Suite" thread-count="1" parallel="classes" >
     <test name = "Regression suite">
        <packages>
            <package name="tests.*"></package>

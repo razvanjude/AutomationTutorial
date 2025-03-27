@@ -4,10 +4,11 @@ import org.testng.annotations.Test;
 import pages.FramePage;
 import pages.IndexPage;
 import sharedData.SharedData;
+import suites.TestSuite;
 
 public class FrameTest extends SharedData {
 
-    @Test
+    @Test (groups = {TestSuite.REGRESSION_SUITE, TestSuite.ALERT_FRAME_SUITE})
     public void metodaTest() {
 
         IndexPage indexPage = new IndexPage(getDriver());
