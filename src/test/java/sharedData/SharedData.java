@@ -16,14 +16,20 @@ public class SharedData {
 
 
     //inainte de fiecare metoda de test se executa aceastA secventa
-    @BeforeMethod (alwaysRun = true)
-    public void prepareEnviroment(){
-        testName=this.getClass().getSimpleName();
+    @BeforeMethod(alwaysRun = true)
+    public void prepareEnviroment() {
+        testName = this.getClass().getSimpleName();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); //setam ca testele noastre sa se ruleze headles(adica fara sa deschida browser) in github actions
-
-        driver = new ChromeDriver(options);//deschidem un chrome browser
+        String remoteEnv = System.getProperty("cicd"); //Luam setarea "false" setat in POM.xml
+        //conversie un String in Boolean
+        if (Boolean.parseBoolean(remoteEnv)) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new"); //setam ca testele noastre sa se ruleze headles(adica fara sa deschida browser) in github actions
+            driver = new ChromeDriver(options);
+            //deschidem un chrome browser}
+        } else {
+            driver = new ChromeDriver();
+        }
 
         //accesam o pagina web
         driver.get("https://demoqa.com");
@@ -35,8 +41,8 @@ public class SharedData {
 
     }
 
-    @AfterMethod (alwaysRun = true)
-    public void clearEnviroment(){
+    @AfterMethod(alwaysRun = true)
+    public void clearEnviroment() {
         driver.quit();
         LoggerUtility.finishTest(testName);
     }
